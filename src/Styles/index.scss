@@ -17,8 +17,7 @@ body {
     height: auto;
     margin: 0 auto;
     box-shadow: 0px 0px 24px 12px rgba(72, 85, 106, 0.15);
-    border-radius: 8px;
-    overflow: hidden;
+    border-radius: 8px;    
 
     @media (min-width: 768px) {
         flex-flow: row;
@@ -34,21 +33,27 @@ body {
         height: 160px;
         background-image: url('../../images/drawers.jpg');
         background-size: cover;
+        border-radius: 8px 8px 0 0;
+
 
         @media (min-width: 768px) {
             width: 256px !important;
             height: 256px !important;
+            border-top-left-radius: 8px;
+            border-radius: 8px 0 0 8px;
         }
     }
 
     .ap-component__body {
         padding: 32px 32px 16px 32px;
+        border-radius: 0 0 8px 8px;
         
         @media (min-width: 768px) {
             display: flex;
             flex-flow: column;
             padding: 32px;
             max-width: 360px;
+            border-radius: 0 8px 8px 0;
         }
     }
 
@@ -72,6 +77,8 @@ body {
 
             @media (min-width: 768px) {
                 line-height: 20px;
+                font-size: map-get($font-sizes, subtext-desktop);
+                margin-bottom: 24px;
             }
         }
 
@@ -136,11 +143,16 @@ body {
     }
 
         .button-label__share {
-            font-size: map-get($font-sizes, button-text);
+            font-size: map-get($font-sizes, button-text-mobile);
             color: map-get($colors, lighter);
             font-weight: 200;
             letter-spacing: 6px;
             margin-right: 8px;
+
+            @media(min-width: 768px) {
+                margin-right: 16px;
+                font-size: map-get($font-sizes, button-text-desktop);
+            }
         }
 
         .button-socmed {
@@ -148,6 +160,8 @@ body {
             width: 80px;
             justify-content: space-between;
             align-items: center;
+            transform: scale(1);
+            transition: transform 100ms;
 
             a {
                 display: flex;
@@ -155,6 +169,23 @@ body {
                 align-items: center;
                 width: 20px;
                 height: 20px;
+            }
+
+            a > svg {
+                transform: scale(1);
+                transition: transform 200ms;
+            }
+
+            a > svg:hover {
+                transform: scale(1.3);
+            }
+
+            a > svg:active {
+                transform: scale(1);
+            }
+
+            @media(min-width: 768px){
+                width: 88px;
             }
         }
     
@@ -170,33 +201,33 @@ body {
         background-color: map-get($colors, lighter);
         position: relative;
         z-index: 6;
-        transform: rotate(0);
-        transition: transform 800ms;
-        overflow: hidden;
+        transform: rotate(0), scale(1);
+        transition: transform 800ms, background-color 50ms;
 
         &:hover {
             cursor: pointer;
         }
 
-        &:focus, :active {
+        &:focus, &:active {
             outline: none;
+            transform: scale(1.2);
         }
 
-        svg {
+        > svg {
             margin-bottom: 1px;
             margin-left: 1px;
         }
 
-        @keyframes buttonMovement {
-            0% {
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(-185px);
-            }
-            100% {
-                transform: translateX(0);
-            }
+        @media(min-width: 768px) {
+            transition: background-color 200ms, transform 400ms;
+        }
+    }
+
+    .svg-arrow {
+        transition: fill 1600ms;
+
+        @media(min-width: 768px) {
+            transition: fill 100ms;
         }
     }
 
@@ -211,4 +242,33 @@ body {
         flex-flow: row;
         background-color: #222;
         transition: width 400ms 200ms;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .desktop-ap-component__button-content--active {
+        display: none;
+
+        @media(min-width: 768px) {
+            cursor: default;
+            position: absolute;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            top: -80px;
+            width: 244px;
+            height: 52px;
+            background-color: map-get($colors, darker);
+            border-radius: 8px;
+            box-shadow: 0px 8px 16px 8px rgba(72, 85, 106, 0.15);
+        }
+    }
+
+    .desktop-ap-component__button-pointer {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        bottom: -10px;
+        background-color: map-get($colors, darker);
+        transform: rotate(45deg);
+        z-index: -1;
     }
