@@ -1,0 +1,175 @@
+@import "styles.scss";
+
+html {
+    font-family: $font-family;
+}
+
+body {
+    margin: 40px auto;
+    width: 100%;
+}
+
+.ap-component {
+    display: flex;
+    position: relative;
+    flex-flow: column;
+    width: 280px;
+    height: auto;
+    margin: 0 auto;
+    box-shadow: 0px 0px 24px 12px rgba(72, 85, 106, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+        flex-flow: row;
+        width: auto;
+        height: 256px;
+        max-width: 648px;
+    }
+}
+
+    .ap-component__image {
+        display: inline-block;
+        width: 280px;
+        height: 160px;
+        background-image: url('../../images/drawers.jpg');
+        background-size: cover;
+
+        @media (min-width: 768px) {
+            width: 256px !important;
+            height: 256px !important;
+        }
+    }
+
+    .ap-component__body {
+        padding: 32px 32px 16px 32px;
+        
+        @media (min-width: 768px) {
+            display: flex;
+            flex-flow: column;
+            padding: 32px;
+            max-width: 360px;
+        }
+    }
+
+        .ap-component__body-header {
+            font-size: map-get($font-sizes, header-mobile);
+            color: map-get($colors, darker);
+            font-weight: 700;
+            margin-bottom: 8px;
+
+            @media (min-width: 768px) {
+                font-size: map-get($font-sizes, header-desktop);
+            }
+        }
+
+        .ap-component__body-sub {
+            font-size: map-get($font-sizes, subtext-mobile);
+            line-height: 18px;
+            color: map-get($colors, dark);
+            font-weight: 500;
+            margin-bottom: 32px;
+
+            @media (min-width: 768px) {
+                line-height: 20px;
+            }
+        }
+
+    .ap-component__button--background {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        box-sizing: border-box;
+        padding: 0 32px;
+        height: 64px;
+        width: 100%;
+        background-color: none;
+        z-index: -1;
+    }
+
+    .ap-component__button-content {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        width: 100%;
+        height: 32px;
+    }
+
+    .ap-component__button-content--default {
+        display: flex;        
+        align-items: center;
+        width: 100%;
+        height: 32px;
+    }
+
+        .ap-component__button-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 16px;
+        }
+
+        .ap-component__button-label {
+            display: flex;
+            flex-flow: column;
+        }
+
+            .button-label__name {
+                margin: 0 0 2px 0;
+                font-size: map-get($font-sizes, subtext-mobile);
+                color: map-get($colors, darker);
+                font-weight: 700;
+            }
+
+            .button-label__date {
+                margin: 0;
+                font-size: map-get($font-sizes, subtext-mobile);
+                color: map-get($colors, light);
+                font-weight: 500;
+            }
+    
+    .ap-component__button-content--active {
+        display: none;
+        align-items: center;
+        width: 100%;
+        height: 32px;
+    }
+
+        .button-label__share {
+            font-size: map-get($font-sizes, button-text);
+            color: map-get($colors, lighter);
+            font-weight: 200;
+            letter-spacing: 6px;
+            margin-right: 8px;
+        }
+
+        .button-socmed {
+            display: flex;
+            width: 80px;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+    
+    .ap-component__button-share {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        width: 30px;
+        min-width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: map-get($colors, lighter);
+        position: relative;
+        z-index: 0;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        svg {
+            margin-bottom: 1px;
+            margin-left: 1px;
+        }
+    }
