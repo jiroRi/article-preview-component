@@ -75,19 +75,8 @@ body {
             }
         }
 
-    .ap-component__button--background {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        box-sizing: border-box;
-        padding: 0 32px;
-        height: 64px;
-        width: 100%;
-        background-color: none;
-        z-index: -1;
-    }
-
     .ap-component__button-content {
+        position: relative;
         display: flex;
         flex-flow: row;
         align-items: center;
@@ -96,10 +85,15 @@ body {
     }
 
     .ap-component__button-content--default {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 4;
         display: flex;        
         align-items: center;
         width: 100%;
         height: 32px;
+        opacity: 1;
     }
 
         .ap-component__button-avatar {
@@ -129,10 +123,16 @@ body {
             }
     
     .ap-component__button-content--active {
-        display: none;
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 3;
         align-items: center;
+        opacity: 0;
         width: 100%;
         height: 32px;
+        transition: opacity 1500ms;
     }
 
         .button-label__share {
@@ -148,7 +148,14 @@ body {
             width: 80px;
             justify-content: space-between;
             align-items: center;
-            
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+            }
         }
     
     .ap-component__button-share {
@@ -162,14 +169,46 @@ body {
         border-radius: 50%;
         background-color: map-get($colors, lighter);
         position: relative;
-        z-index: 0;
+        z-index: 6;
+        transform: rotate(0);
+        transition: transform 800ms;
+        overflow: hidden;
 
         &:hover {
             cursor: pointer;
+        }
+
+        &:focus, :active {
+            outline: none;
         }
 
         svg {
             margin-bottom: 1px;
             margin-left: 1px;
         }
+
+        @keyframes buttonMovement {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(-185px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .ap-component__button--background {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        z-index: -1;
+        height: 64px;
+        display: flex;
+        flex-flow: row;
+        background-color: #222;
+        transition: width 400ms 200ms;
     }
