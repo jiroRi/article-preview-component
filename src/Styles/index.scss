@@ -5,8 +5,13 @@ html {
 }
 
 body {
-    margin: 40px auto;
+    margin: 56px auto;
     width: 100%;
+
+    @media(min-width: 768px) {
+        margin: 0 auto;
+        height: 100vh;
+    }
 }
 
 .ap-component {
@@ -17,7 +22,8 @@ body {
     height: auto;
     margin: 0 auto;
     box-shadow: 0px 0px 24px 12px rgba(72, 85, 106, 0.15);
-    border-radius: 8px;    
+    border-radius: 8px;
+    top: 25%;  
 
     @media (min-width: 768px) {
         flex-flow: row;
@@ -143,6 +149,8 @@ body {
     }
 
         .button-label__share {
+            display: flex;
+            align-items: center;
             font-size: map-get($font-sizes, button-text-mobile);
             color: map-get($colors, lighter);
             font-weight: 200;
@@ -202,15 +210,15 @@ body {
         position: relative;
         z-index: 6;
         transform: rotate(0), scale(1);
-        transition: transform 800ms, background-color 50ms;
+        transition: transform 800ms, background-color 400ms;
 
         &:hover {
             cursor: pointer;
         }
 
-        &:focus, &:active {
+        &:active {
             outline: none;
-            transform: scale(1.2);
+            transform: scale(1);
         }
 
         > svg {
@@ -219,7 +227,7 @@ body {
         }
 
         @media(min-width: 768px) {
-            transition: background-color 200ms, transform 400ms;
+            transition: background-color 150ms, transform 400ms;
         }
     }
 
@@ -251,15 +259,17 @@ body {
         @media(min-width: 768px) {
             cursor: default;
             position: absolute;
-            display: none;
+            display: flex;
             justify-content: center;
             align-items: center;
-            top: -80px;
             width: 244px;
             height: 52px;
             background-color: map-get($colors, darker);
             border-radius: 8px;
             box-shadow: 0px 8px 16px 8px rgba(72, 85, 106, 0.15);
+            bottom: -9999px;
+            opacity: 0;
+            transition:  opacity 150ms;
         }
     }
 
