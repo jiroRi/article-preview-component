@@ -3,8 +3,15 @@ html {
 }
 
 body {
-  margin: 40px auto;
+  margin: 56px auto;
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  body {
+    margin: 0 auto;
+    height: 100vh;
+  }
 }
 
 .ap-component {
@@ -22,6 +29,7 @@ body {
   -webkit-box-shadow: 0px 0px 24px 12px rgba(72, 85, 106, 0.15);
           box-shadow: 0px 0px 24px 12px rgba(72, 85, 106, 0.15);
   border-radius: 8px;
+  top: 25%;
 }
 
 @media (min-width: 768px) {
@@ -185,6 +193,12 @@ body {
 }
 
 .button-label__share {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 11px;
   color: #ECF2F8;
   font-weight: 200;
@@ -277,20 +291,20 @@ body {
   z-index: 6;
   -webkit-transform: rotate(0), scale(1);
           transform: rotate(0), scale(1);
-  -webkit-transition: background-color 50ms, -webkit-transform 800ms;
-  transition: background-color 50ms, -webkit-transform 800ms;
-  transition: transform 800ms, background-color 50ms;
-  transition: transform 800ms, background-color 50ms, -webkit-transform 800ms;
+  -webkit-transition: background-color 400ms, -webkit-transform 800ms;
+  transition: background-color 400ms, -webkit-transform 800ms;
+  transition: transform 800ms, background-color 400ms;
+  transition: transform 800ms, background-color 400ms, -webkit-transform 800ms;
 }
 
 .ap-component__button-share:hover {
   cursor: pointer;
 }
 
-.ap-component__button-share:focus, .ap-component__button-share:active {
+.ap-component__button-share:active {
   outline: none;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .ap-component__button-share > svg {
@@ -300,10 +314,10 @@ body {
 
 @media (min-width: 768px) {
   .ap-component__button-share {
-    -webkit-transition: background-color 200ms, -webkit-transform 400ms;
-    transition: background-color 200ms, -webkit-transform 400ms;
-    transition: background-color 200ms, transform 400ms;
-    transition: background-color 200ms, transform 400ms, -webkit-transform 400ms;
+    -webkit-transition: background-color 150ms, -webkit-transform 400ms;
+    transition: background-color 150ms, -webkit-transform 400ms;
+    transition: background-color 150ms, transform 400ms;
+    transition: background-color 150ms, transform 400ms, -webkit-transform 400ms;
   }
 }
 
@@ -347,20 +361,25 @@ body {
   .desktop-ap-component__button-content--active {
     cursor: default;
     position: absolute;
-    display: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    top: -80px;
     width: 244px;
     height: 52px;
     background-color: #48556A;
     border-radius: 8px;
     -webkit-box-shadow: 0px 8px 16px 8px rgba(72, 85, 106, 0.15);
             box-shadow: 0px 8px 16px 8px rgba(72, 85, 106, 0.15);
+    bottom: -9999px;
+    opacity: 0;
+    -webkit-transition: opacity 150ms;
+    transition: opacity 150ms;
   }
 }
 

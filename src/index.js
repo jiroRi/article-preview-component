@@ -55,8 +55,10 @@ shareButton.addEventListener('click', function() {
         }
     }
     else {
-        if(!shareButtonBoolean) {
-            apComponentButtonActiveDesktop.style.display = 'flex';
+        if(!shareButtonBoolean) {         
+            apComponentButtonActiveDesktop.style.top = '-80px';
+            apComponentButtonActiveDesktop.style.opacity = 1;
+            
 
             shareButton.style.backgroundColor = '#6D7F97';
 
@@ -64,7 +66,8 @@ shareButton.addEventListener('click', function() {
             shareButtonBoolean = true;
         }
         else {
-            apComponentButtonActiveDesktop.style.display = 'none'
+            apComponentButtonActiveDesktop.style.bottom = '-9999px';
+            apComponentButtonActiveDesktop.style.opacity = 0;
 
             shareButton.style.backgroundColor = '#ECF2F8';
     
