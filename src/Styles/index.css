@@ -22,7 +22,6 @@ body {
   -webkit-box-shadow: 0px 0px 24px 12px rgba(72, 85, 106, 0.15);
           box-shadow: 0px 0px 24px 12px rgba(72, 85, 106, 0.15);
   border-radius: 8px;
-  overflow: hidden;
 }
 
 @media (min-width: 768px) {
@@ -43,17 +42,21 @@ body {
   height: 160px;
   background-image: url("../../images/drawers.jpg");
   background-size: cover;
+  border-radius: 8px 8px 0 0;
 }
 
 @media (min-width: 768px) {
   .ap-component__image {
     width: 256px !important;
     height: 256px !important;
+    border-top-left-radius: 8px;
+    border-radius: 8px 0 0 8px;
   }
 }
 
 .ap-component__body {
   padding: 32px 32px 16px 32px;
+  border-radius: 0 0 8px 8px;
 }
 
 @media (min-width: 768px) {
@@ -67,6 +70,7 @@ body {
             flex-flow: column;
     padding: 32px;
     max-width: 360px;
+    border-radius: 0 8px 8px 0;
   }
 }
 
@@ -79,7 +83,7 @@ body {
 
 @media (min-width: 768px) {
   .ap-component__body-header {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
@@ -94,6 +98,8 @@ body {
 @media (min-width: 768px) {
   .ap-component__body-sub {
     line-height: 20px;
+    font-size: 12px;
+    margin-bottom: 24px;
   }
 }
 
@@ -186,6 +192,13 @@ body {
   margin-right: 8px;
 }
 
+@media (min-width: 768px) {
+  .button-label__share {
+    margin-right: 16px;
+    font-size: 12px;
+  }
+}
+
 .button-socmed {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -197,6 +210,12 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 100ms;
+  transition: -webkit-transform 100ms;
+  transition: transform 100ms;
+  transition: transform 100ms, -webkit-transform 100ms;
 }
 
 .button-socmed a {
@@ -211,6 +230,31 @@ body {
           align-items: center;
   width: 20px;
   height: 20px;
+}
+
+.button-socmed a > svg {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 200ms;
+  transition: -webkit-transform 200ms;
+  transition: transform 200ms;
+  transition: transform 200ms, -webkit-transform 200ms;
+}
+
+.button-socmed a > svg:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+
+.button-socmed a > svg:active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+@media (min-width: 768px) {
+  .button-socmed {
+    width: 88px;
+  }
 }
 
 .ap-component__button-share {
@@ -231,55 +275,47 @@ body {
   background-color: #ECF2F8;
   position: relative;
   z-index: 6;
-  -webkit-transform: rotate(0);
-          transform: rotate(0);
-  -webkit-transition: -webkit-transform 800ms;
-  transition: -webkit-transform 800ms;
-  transition: transform 800ms;
-  transition: transform 800ms, -webkit-transform 800ms;
-  overflow: hidden;
+  -webkit-transform: rotate(0), scale(1);
+          transform: rotate(0), scale(1);
+  -webkit-transition: background-color 50ms, -webkit-transform 800ms;
+  transition: background-color 50ms, -webkit-transform 800ms;
+  transition: transform 800ms, background-color 50ms;
+  transition: transform 800ms, background-color 50ms, -webkit-transform 800ms;
 }
 
 .ap-component__button-share:hover {
   cursor: pointer;
 }
 
-.ap-component__button-share:focus, .ap-component__button-share :active {
+.ap-component__button-share:focus, .ap-component__button-share:active {
   outline: none;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
-.ap-component__button-share svg {
+.ap-component__button-share > svg {
   margin-bottom: 1px;
   margin-left: 1px;
 }
 
-@-webkit-keyframes buttonMovement {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  50% {
-    -webkit-transform: translateX(-185px);
-            transform: translateX(-185px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+@media (min-width: 768px) {
+  .ap-component__button-share {
+    -webkit-transition: background-color 200ms, -webkit-transform 400ms;
+    transition: background-color 200ms, -webkit-transform 400ms;
+    transition: background-color 200ms, transform 400ms;
+    transition: background-color 200ms, transform 400ms, -webkit-transform 400ms;
   }
 }
 
-@keyframes buttonMovement {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  50% {
-    -webkit-transform: translateX(-185px);
-            transform: translateX(-185px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+.svg-arrow {
+  -webkit-transition: fill 1600ms;
+  transition: fill 1600ms;
+}
+
+@media (min-width: 768px) {
+  .svg-arrow {
+    -webkit-transition: fill 100ms;
+    transition: fill 100ms;
   }
 }
 
@@ -300,5 +336,42 @@ body {
   background-color: #222;
   -webkit-transition: width 400ms 200ms;
   transition: width 400ms 200ms;
+  border-radius: 0 0 8px 8px;
+}
+
+.desktop-ap-component__button-content--active {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-ap-component__button-content--active {
+    cursor: default;
+    position: absolute;
+    display: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    top: -80px;
+    width: 244px;
+    height: 52px;
+    background-color: #48556A;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 8px 16px 8px rgba(72, 85, 106, 0.15);
+            box-shadow: 0px 8px 16px 8px rgba(72, 85, 106, 0.15);
+  }
+}
+
+.desktop-ap-component__button-pointer {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: -10px;
+  background-color: #48556A;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  z-index: -1;
 }
 /*# sourceMappingURL=index.css.map */
