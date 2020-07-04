@@ -34,8 +34,8 @@ shareButton.addEventListener('click', function() {
 
         shareButtonSVG.style.fill = '#ffffff';
         shareButtonBoolean = true;
-        console.log(shareButton)
         }
+        
         else {
 
         apComponentButtonDefault.style.zIndex = 4;

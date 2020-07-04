@@ -49,11 +49,13 @@ body {
 
 .ap-component__image {
   display: inline-block;
+  position: relative;
   width: 280px;
   height: 160px;
   background-image: url("../../images/drawers.jpg");
   background-size: cover;
   border-radius: 8px 8px 0 0;
+  z-index: 2;
 }
 
 @media (min-width: 768px) {
