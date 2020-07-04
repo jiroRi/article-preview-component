@@ -1,6 +1,8 @@
 let apComponentButtonActive = document.querySelector('.ap-component__button-content--active');
 let apComponentButtonDefault = document.querySelector('.ap-component__button-content--default');
-let apComponentButtonBackground= document.querySelector('.ap-component__button--background');
+let apComponentButtonBackground = document.querySelector('.ap-component__button--background');
+
+let apComponent = document.querySelector('.ap-component');
 
 let apComponentButtonActiveDesktop = document.querySelector('.desktop-ap-component__button-content--active');
 
@@ -9,13 +11,11 @@ let shareButtonSVG = document.querySelector('.svg-arrow');
 let shareButtonBoolean = false;
 
 let windowSize = window.screen.availWidth;
-
-console.log(shareButton)
-/* console.dir(shareButton); */
+let elementSize = apComponent.offsetWidth + "px";
 
 shareButton.addEventListener('click', function() {
 
-    if(windowSize <= 768) {
+    if(elementSize == '280px') {
         if(!shareButtonBoolean) {
         
         apComponentButtonDefault.style.zIndex = 3;
