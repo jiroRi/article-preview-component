@@ -27,6 +27,7 @@ shareButton.addEventListener('click', function() {
 
         apComponentButtonBackground.style.backgroundColor = '#48556A';
         apComponentButtonBackground.style.width = '100%';
+        apComponentButtonBackground.style.height = '64px';
 
         shareButton.style.transform = 'rotate(360deg)';
         shareButton.style.backgroundColor = '#6D7F97';
