@@ -17,6 +17,7 @@ body {
 
 .ap-component {
     display: flex;
+    box-sizing: border-box;
     position: relative;
     flex-flow: column;
     width: 280px;
